@@ -1,0 +1,34 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace Abstract
+{
+    class Trisngle : Surface
+    {
+        readonly public float side_A;
+        readonly public float side_B;
+        readonly public float side_C;
+        public Trisngle(float A = 0, float B = 0, float C = 0)
+        {
+            this.side_A = A;
+            this.side_B = B;
+            this.side_C = C;
+        }
+        public override float GetSurface()
+        {
+            return (side_A + side_B + side_C) / 2;
+        }
+        public override float GetCircumference()
+        {
+            return side_A + side_B + side_C;
+        }
+        public override void GetBounds(out float beside, out float vertical)
+        {
+            beside = this.side_A;
+            vertical = GetSurface() * 2 / side_A;
+        }
+    }
+}
