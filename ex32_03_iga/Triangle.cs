@@ -19,7 +19,9 @@ namespace Abstract
         }
         public override float GetSurface()
         {
-            return (side_A + side_B + side_C) / 2;
+            float s;
+            s = (side_A + side_B + side_C) / 2;
+            return MathF.Sqrt(s*(s-side_A)*(s-side_B)*(s-side_C));
         }
         public override float GetCircumference()
         {
